@@ -1,0 +1,14 @@
+/usr/bin/rrdcached -w <%= @write_interval -%>
+  <%- if defined?(@write_jitter) -%>
+  -z <%= @write_jitter -%>
+  <%- end -%>
+  <%- if defined?(@socket_group) -%>
+  -s <%= @socket_group -%>
+  <%- end -%>
+  -f <%= @flush_interval -%>
+  -p <%= @pid_file -%>
+  <% if @restrict_file_access -%>-B<% end -%>
+  -j <%= @journal_dir -%>
+  -l <%= @listen -%>
+  -t <%= @write_threads -%>
+  -F -b <%= @basedir -%>

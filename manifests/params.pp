@@ -1,6 +1,7 @@
 class rrdtool::params {
 
   $package_name='rrdtool'
+  $rrdcached_name='rrdcached'
 
   case $::osfamily
   {
@@ -8,7 +9,7 @@ class rrdtool::params {
     {
       case $::operatingsystemrelease
       {
-        /^[5-7].*$/:
+        /^[7].*$/:
         {
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
@@ -20,6 +21,7 @@ class rrdtool::params {
       {
         'Ubuntu':
         {
+          fail('Unsupported')
           case $::operatingsystemrelease
           {
             /^14.*$/:
