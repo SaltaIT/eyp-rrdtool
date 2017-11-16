@@ -1,7 +1,6 @@
 class rrdtool::params {
 
   $package_name='rrdtool'
-  $service_name='rrdtool'
 
   case $::osfamily
   {
